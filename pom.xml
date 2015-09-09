@@ -1,18 +1,20 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>com.lieqihezi.maonaiyi.account</groupId>
+  <parent>
+  	<groupId>com.lieqihezi.maonaiyi.account</groupId>
+  	<artifactId>account-aggregator</artifactId>
+  	<version>0.0.1-SNAPSHOT</version>
+  	<relativePath>./account-aggregator/pom.xml</relativePath>
+  </parent>
   <artifactId>account-email</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  <packaging>jar</packaging>
-
   <name>account-email</name>
   <url>http://maven.apache.org</url>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <springframework.version>4.2.1.RELEASE</springframework.version>
   </properties>
-
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
@@ -23,22 +25,22 @@
     <dependency>
     	<groupId>org.springframework</groupId>
     	<artifactId>spring-core</artifactId>
-    	<version>4.2.1.RELEASE</version>
+    	<version>${springframework.version}</version>
     </dependency>
     <dependency>
     	<groupId>org.springframework</groupId>
     	<artifactId>spring-beans</artifactId>
-    	<version>4.2.1.RELEASE</version>
+    	<version>${springframework.version}</version>
     </dependency>
     <dependency>
     	<groupId>org.springframework</groupId>
     	<artifactId>spring-context</artifactId>
-    	<version>4.2.1.RELEASE</version>
+    	<version>${springframework.version}</version>
     </dependency>
     <dependency>
     	<groupId>org.springframework</groupId>
     	<artifactId>spring-context-support</artifactId>
-    	<version>4.2.1.RELEASE</version>
+    	<version>${springframework.version}</version>
     </dependency>
     <dependency>
     	<groupId>com.sun.mail</groupId>
@@ -53,6 +55,12 @@
     </dependency>
   </dependencies>
   <build>
+    <testResources>
+    	<testResource>
+    		<directory>src/test/resources</directory>
+    		<filtering>true</filtering>
+    	</testResource>
+    </testResources>
   	<plugins>
   		<plugin>
   			<groupId>org.apache.maven.plugins</groupId>

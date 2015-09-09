@@ -17,6 +17,7 @@ import com.icegreen.greenmail.util.ServerSetup;
 public class AccountEmailServiceTest {
    
 	private GreenMail greenMail;
+	private ApplicationContext ctx;
 	
 	@Before
 	public void startMailServer() throws Exception {
@@ -29,7 +30,7 @@ public class AccountEmailServiceTest {
 	public void testSendMail()
 		throws Exception
 	{
-		ApplicationContext ctx = new ClassPathXmlApplicationContext("account-email.xml");
+		ctx = new ClassPathXmlApplicationContext("account-email.xml");
 		AccountEmailService accountEmailService = (AccountEmailService) ctx.getBean("accountEmailService");
 		
 		String subject = "Test Subject";
